@@ -11,22 +11,23 @@ class ImageGridViewInteractor {
     private let dataFetchingService: DataFetchingService
     private let authorizationService: AuthorizationService
     private let networkService: NetworkService
+    private unowned let presenter: ImageGridViewPresenter
     
-    weak var presenter: ImageGridViewPresenter?
-    
-    var currentPage = 0
-    var totalPages = 0
-    var hasMore = true
-    var loadingInProgress = false
-    var pictures: [Picture] = []
+    private var currentPage = 0
+    private var totalPages = 0
+    private var hasMore = true
+    private var loadingInProgress = false
+    private var pictures: [Picture] = []
     
     init(dataFetchingService: DataFetchingService = Dependencies.current.services.dataFetchingService,
          authorizationService: AuthorizationService = Dependencies.current.services.authorizationService,
-         networkService: NetworkService = Dependencies.current.services.networkService) {
+         networkService: NetworkService = Dependencies.current.services.networkService,
+         presenter: ImageGridViewPresenter) {
         
         self.dataFetchingService = dataFetchingService
         self.authorizationService = authorizationService
         self.networkService = networkService
+        self.presenter = presenter
     }
     
     func authorizeAndFetchInitialData() {
@@ -37,7 +38,7 @@ class ImageGridViewInteractor {
                 self.updateAuthorizationToken(token: response.token)
                 self.fetchMoreImages()
             case .failure(let error):
-                self.presenter?.handleError(message: error.localizedDescription)
+                self.presenter.handleError(message: error.localizedDescription)
             }
         }
     }
@@ -52,9 +53,13 @@ class ImageGridViewInteractor {
             case .success(let response):
                 self.handlePictureResponse(response)
             case .failure(let error):
-                self.presenter?.handleError(message: error.localizedDescription)
+                self.presenter.handleError(message: error.localizedDescription)
             }
         }
+    }
+    
+    func getPicture(at index: Int) -> Picture {
+        return pictures[index]
     }
     
     private func updateAuthorizationToken(token: String) {
@@ -67,6 +72,6 @@ class ImageGridViewInteractor {
         totalPages = response.pageCount
         hasMore = response.hasMore
         pictures.append(contentsOf: response.pictures)
-        presenter?.handleNewPictures(pictures)
+        presenter.handleNewPictures(pictures)
     }
 }

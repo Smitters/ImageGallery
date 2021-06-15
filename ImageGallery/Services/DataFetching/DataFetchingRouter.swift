@@ -17,7 +17,9 @@ enum DataFetchingRouter: APIRequestRouter {
 
     var path: String {
         switch self {
-        case .images, .imageDetails: return "images"
+        case .images:
+            return "images"
+        case .imageDetails(let id): return "images/\(id)"
         }
     }
 
@@ -31,9 +33,8 @@ enum DataFetchingRouter: APIRequestRouter {
         switch self {
         case .images(let page):
             return ["page": page]
-        case .imageDetails(let imageId):
-            return ["id": imageId]
-
+        case .imageDetails:
+            return nil
         }
     }
 }

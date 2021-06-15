@@ -30,6 +30,12 @@
 		109C255A2678AD4B0073D78C /* ImageGridViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109C25592678AD4B0073D78C /* ImageGridViewPresenter.swift */; };
 		109C255C2678B46B0073D78C /* ImageGridViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109C255B2678B46B0073D78C /* ImageGridViewController+DataSource.swift */; };
 		109C25602678B5220073D78C /* PictureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109C255F2678B5220073D78C /* PictureCollectionViewCell.swift */; };
+		109C25642678C23B0073D78C /* PictureDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109C25632678C23B0073D78C /* PictureDetailsViewController.swift */; };
+		109C25662678C2F20073D78C /* PictureDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109C25652678C2F20073D78C /* PictureDetailsPresenter.swift */; };
+		109C25682678C41D0073D78C /* ImageGridRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109C25672678C41D0073D78C /* ImageGridRouter.swift */; };
+		109C256A2678C5C10073D78C /* PictureDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109C25692678C5C10073D78C /* PictureDetailsInteractor.swift */; };
+		109C256C2678C86D0073D78C /* PictureDetailsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109C256B2678C86D0073D78C /* PictureDetailsResponse.swift */; };
+		109C256E2678CE440073D78C /* AlertShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109C256D2678CE440073D78C /* AlertShowable.swift */; };
 		CE7CED1F58D149F13C7407BB /* Pods_ImageGallery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BAB5A2434CC874139BA2C29 /* Pods_ImageGallery.framework */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +87,12 @@
 		109C25592678AD4B0073D78C /* ImageGridViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGridViewPresenter.swift; sourceTree = "<group>"; };
 		109C255B2678B46B0073D78C /* ImageGridViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageGridViewController+DataSource.swift"; sourceTree = "<group>"; };
 		109C255F2678B5220073D78C /* PictureCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureCollectionViewCell.swift; sourceTree = "<group>"; };
+		109C25632678C23B0073D78C /* PictureDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureDetailsViewController.swift; sourceTree = "<group>"; };
+		109C25652678C2F20073D78C /* PictureDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureDetailsPresenter.swift; sourceTree = "<group>"; };
+		109C25672678C41D0073D78C /* ImageGridRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGridRouter.swift; sourceTree = "<group>"; };
+		109C25692678C5C10073D78C /* PictureDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureDetailsInteractor.swift; sourceTree = "<group>"; };
+		109C256B2678C86D0073D78C /* PictureDetailsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureDetailsResponse.swift; sourceTree = "<group>"; };
+		109C256D2678CE440073D78C /* AlertShowable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertShowable.swift; sourceTree = "<group>"; };
 		2DA24A8A7C7CF706630BB78E /* Pods-ImageGallery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageGallery.release.xcconfig"; path = "Target Support Files/Pods-ImageGallery/Pods-ImageGallery.release.xcconfig"; sourceTree = "<group>"; };
 		9BAB5A2434CC874139BA2C29 /* Pods_ImageGallery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImageGallery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -179,8 +191,9 @@
 		109C2535267897340073D78C /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				109C2537267897450073D78C /* ViewControllers */,
+				109C256D2678CE440073D78C /* AlertShowable.swift */,
 				109C25362678973C0073D78C /* Storyboards */,
+				109C2537267897450073D78C /* ViewControllers */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -197,11 +210,8 @@
 		109C2537267897450073D78C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				109C2509267897000073D78C /* ImageGridViewController.swift */,
-				109C255B2678B46B0073D78C /* ImageGridViewController+DataSource.swift */,
-				109C25572678AC060073D78C /* ImageGridViewInteractor.swift */,
-				109C25592678AD4B0073D78C /* ImageGridViewPresenter.swift */,
-				109C255E2678B4F30073D78C /* CollectionViewCells */,
+				109C25612678C0110073D78C /* GridView */,
+				109C25622678C01E0073D78C /* PictureDetails */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -249,6 +259,7 @@
 				109C254E2678A4F80073D78C /* DataFetchingRouter.swift */,
 				109C25502678A6470073D78C /* DataFetchingService.swift */,
 				109C25522678A6B80073D78C /* FetchImagesResponse.swift */,
+				109C256B2678C86D0073D78C /* PictureDetailsResponse.swift */,
 			);
 			path = DataFetching;
 			sourceTree = "<group>";
@@ -267,6 +278,29 @@
 				109C255F2678B5220073D78C /* PictureCollectionViewCell.swift */,
 			);
 			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
+		109C25612678C0110073D78C /* GridView */ = {
+			isa = PBXGroup;
+			children = (
+				109C25672678C41D0073D78C /* ImageGridRouter.swift */,
+				109C2509267897000073D78C /* ImageGridViewController.swift */,
+				109C255B2678B46B0073D78C /* ImageGridViewController+DataSource.swift */,
+				109C25572678AC060073D78C /* ImageGridViewInteractor.swift */,
+				109C25592678AD4B0073D78C /* ImageGridViewPresenter.swift */,
+				109C255E2678B4F30073D78C /* CollectionViewCells */,
+			);
+			path = GridView;
+			sourceTree = "<group>";
+		};
+		109C25622678C01E0073D78C /* PictureDetails */ = {
+			isa = PBXGroup;
+			children = (
+				109C25632678C23B0073D78C /* PictureDetailsViewController.swift */,
+				109C25652678C2F20073D78C /* PictureDetailsPresenter.swift */,
+				109C25692678C5C10073D78C /* PictureDetailsInteractor.swift */,
+			);
+			path = PictureDetails;
 			sourceTree = "<group>";
 		};
 		533DA6182A2225172F41B9BF /* Frameworks */ = {
@@ -451,23 +485,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				109C256A2678C5C10073D78C /* PictureDetailsInteractor.swift in Sources */,
 				109C25562678AA190073D78C /* Dependencies.swift in Sources */,
 				109C254A2678A3140073D78C /* AuthorizationService.swift in Sources */,
 				109C25462678A1EF0073D78C /* AuthorizationRouter.swift in Sources */,
 				109C255A2678AD4B0073D78C /* ImageGridViewPresenter.swift in Sources */,
 				109C250A267897000073D78C /* ImageGridViewController.swift in Sources */,
 				109C253E26789DC40073D78C /* APIRequestRouter.swift in Sources */,
+				109C25642678C23B0073D78C /* PictureDetailsViewController.swift in Sources */,
 				109C2506267897000073D78C /* AppDelegate.swift in Sources */,
 				109C254C2678A39B0073D78C /* Constants.swift in Sources */,
 				109C253B267898670073D78C /* NetworkService.swift in Sources */,
 				109C25602678B5220073D78C /* PictureCollectionViewCell.swift in Sources */,
 				109C25512678A6470073D78C /* DataFetchingService.swift in Sources */,
 				109C254F2678A4F80073D78C /* DataFetchingRouter.swift in Sources */,
+				109C256C2678C86D0073D78C /* PictureDetailsResponse.swift in Sources */,
+				109C25682678C41D0073D78C /* ImageGridRouter.swift in Sources */,
 				109C2508267897000073D78C /* SceneDelegate.swift in Sources */,
 				109C25582678AC060073D78C /* ImageGridViewInteractor.swift in Sources */,
 				109C255C2678B46B0073D78C /* ImageGridViewController+DataSource.swift in Sources */,
+				109C256E2678CE440073D78C /* AlertShowable.swift in Sources */,
 				109C25482678A2A20073D78C /* AuthorizationResponse.swift in Sources */,
 				109C254026789E000073D78C /* RequestRetrier.swift in Sources */,
+				109C25662678C2F20073D78C /* PictureDetailsPresenter.swift in Sources */,
 				109C25532678A6B80073D78C /* FetchImagesResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ImageGridViewController: UIViewController {
+class ImageGridViewController: UIViewController, AlertShowable {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -21,10 +21,14 @@ class ImageGridViewController: UIViewController {
         imageGridViewPresenter.handleScreenLoading()
     }
     
-    func showAlert(title: String, message: String) {
-        let alertViewController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertViewController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alertViewController, animated: true)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     func dataUpdated(images: [URL]) {

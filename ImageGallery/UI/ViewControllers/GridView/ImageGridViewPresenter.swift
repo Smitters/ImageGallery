@@ -5,16 +5,16 @@
 //  Created by Dmitry Smetankin on 15.06.2021.
 //
 
-import Foundation
+import UIKit
 
 class ImageGridViewPresenter {
-    private let interactor: ImageGridViewInteractor
+    private let router: ImageGridRouter
+    private lazy var interactor = ImageGridViewInteractor(presenter: self)
     private unowned let viewController: ImageGridViewController
     
     init(viewController: ImageGridViewController) {
         self.viewController = viewController
-        interactor = ImageGridViewInteractor()
-        interactor.presenter = self
+        router = ImageGridRouter(navigationController: viewController.navigationController)
     }
 }
 
@@ -27,6 +27,11 @@ extension ImageGridViewPresenter {
     
     func handleLatestCellsDisplaying() {
         interactor.fetchMoreImages()
+    }
+    
+    func handlePictureSelection(at index: Int) {
+        let selectedPicture = interactor.getPicture(at: index)
+        router.showDetailsScreen(with: selectedPicture)
     }
 }
 

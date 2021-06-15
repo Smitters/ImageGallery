@@ -26,10 +26,10 @@ final class DataFetchingService {
         )
     }
     
-    func fetchImageDetails(id: String, completion: @escaping(Result<FetchImagesResponse, NetworkingError>) -> Void) {
+    func fetchImageDetails(id: String, completion: @escaping(Result<PictureDetailsResponse, NetworkingError>) -> Void) {
         networkService.performRequest(
             request: DataFetchingRouter.imageDetails(id),
-            completionHandler: { (result: Result<FetchImagesResponse, NetworkingError>) in
+            completionHandler: { (result: Result<PictureDetailsResponse, NetworkingError>) in
                 switch result {
                 case .failure(let error):
                     completion(.failure(error))
