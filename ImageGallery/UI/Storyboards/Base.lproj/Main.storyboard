@@ -97,7 +97,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NUe-Ot-ZYV">
-                                <rect key="frame" x="0.0" y="241" width="414" height="414"/>
+                                <rect key="frame" x="0.0" y="181" width="414" height="414"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZiM-eE-ykA">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
@@ -115,29 +115,44 @@
                                 </constraints>
                             </scrollView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="500" verticalCompressionResistancePriority="1000" text="Loading.." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f5x-Sc-bvr">
-                                <rect key="frame" x="20" y="771" width="98.5" height="30"/>
+                                <rect key="frame" x="20" y="771" width="322" height="30"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading.." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="07e-cJ-MsR">
-                                <rect key="frame" x="20" y="809" width="77.5" height="23"/>
+                                <rect key="frame" x="20" y="809" width="322" height="23"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="phN-Kd-QUW">
+                                <rect key="frame" x="350" y="778" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="HA7-x5-XC7"/>
+                                    <constraint firstAttribute="height" constant="44" id="gmB-ZX-Xtw"/>
+                                </constraints>
+                                <state key="normal" image="ShareThis"/>
+                                <connections>
+                                    <action selector="shareButtonPressed" destination="9at-o3-ww2" eventType="touchUpInside" id="hy7-Iw-ZhA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2K0-64-Ze0"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="NUe-Ot-ZYV" firstAttribute="centerY" secondItem="uZY-c4-mgd" secondAttribute="centerY" id="2xc-Rj-5Xe"/>
+                            <constraint firstItem="2K0-64-Ze0" firstAttribute="bottom" secondItem="phN-Kd-QUW" secondAttribute="bottom" constant="40" id="0x9-ZY-Pvi"/>
+                            <constraint firstItem="2K0-64-Ze0" firstAttribute="trailing" secondItem="phN-Kd-QUW" secondAttribute="trailing" constant="20" id="2Rx-zq-uux"/>
+                            <constraint firstItem="NUe-Ot-ZYV" firstAttribute="centerY" secondItem="uZY-c4-mgd" secondAttribute="centerY" constant="-60" id="2xc-Rj-5Xe"/>
                             <constraint firstItem="07e-cJ-MsR" firstAttribute="top" secondItem="f5x-Sc-bvr" secondAttribute="bottom" constant="8" id="4Gz-I2-ENR"/>
                             <constraint firstItem="NUe-Ot-ZYV" firstAttribute="leading" secondItem="2K0-64-Ze0" secondAttribute="leading" id="5jb-zZ-Jyf"/>
                             <constraint firstItem="ZiM-eE-ykA" firstAttribute="width" secondItem="uZY-c4-mgd" secondAttribute="width" id="c9P-5Z-i66"/>
                             <constraint firstItem="2K0-64-Ze0" firstAttribute="bottom" secondItem="07e-cJ-MsR" secondAttribute="bottom" constant="30" id="dQx-KA-aEI"/>
                             <constraint firstItem="f5x-Sc-bvr" firstAttribute="top" relation="greaterThanOrEqual" secondItem="NUe-Ot-ZYV" secondAttribute="bottom" id="eNd-Rv-i65"/>
                             <constraint firstItem="07e-cJ-MsR" firstAttribute="leading" secondItem="2K0-64-Ze0" secondAttribute="leading" constant="20" id="hPr-LN-8z0"/>
+                            <constraint firstItem="phN-Kd-QUW" firstAttribute="leading" secondItem="f5x-Sc-bvr" secondAttribute="trailing" constant="8" id="kUq-Pp-Wk0"/>
                             <constraint firstItem="f5x-Sc-bvr" firstAttribute="leading" secondItem="2K0-64-Ze0" secondAttribute="leading" constant="20" id="l79-0e-a8i"/>
+                            <constraint firstItem="phN-Kd-QUW" firstAttribute="leading" secondItem="07e-cJ-MsR" secondAttribute="trailing" constant="8" id="lqW-ml-zsv"/>
                             <constraint firstItem="NUe-Ot-ZYV" firstAttribute="trailing" secondItem="2K0-64-Ze0" secondAttribute="trailing" id="wap-JG-OJY"/>
                         </constraints>
                     </view>
@@ -153,4 +168,7 @@
             <point key="canvasLocation" x="992.75362318840587" y="113.83928571428571"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ShareThis" width="267" height="267"/>
+    </resources>
 </document>

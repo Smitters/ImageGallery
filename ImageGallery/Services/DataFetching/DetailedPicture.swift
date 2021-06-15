@@ -5,7 +5,7 @@
 //  Created by Dmitry Smetankin on 15.06.2021.
 //
 
-struct PictureDetailsResponse: Codable {
+struct DetailedPicture: Codable {
     let id: String
     let author: String
     let fullPicture: String

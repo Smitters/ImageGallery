@@ -29,6 +29,10 @@ final class PictureDetailsViewController: UIViewController, AlertShowable {
         authorNameLabel.text = viewModel.author
         pictureDescriptionLabel.text = viewModel.pictureDescription
     }
+    
+    @IBAction func shareButtonPressed() {
+        presenter.handleShare()
+    }
 }
 
 extension PictureDetailsViewController: UIScrollViewDelegate {
