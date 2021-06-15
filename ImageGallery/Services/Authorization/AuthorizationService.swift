@@ -12,7 +12,7 @@ final class AuthorizationService {
         self.networkService = networkService
     }
     
-    func authorize(completion: @escaping(Result<AuthorizationResponse, Error>) -> Void) {
+    func authorize(completion: @escaping(Result<AuthorizationResponse, NetworkingError>) -> Void) {
         networkService.performRequest(
             request: AuthorizationRouter.authenticate(Constants.Authorization.apiKey),
             completionHandler: { (result: Result<AuthorizationResponse, NetworkingError>) in

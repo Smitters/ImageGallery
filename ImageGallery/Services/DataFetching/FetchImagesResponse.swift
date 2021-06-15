@@ -8,5 +8,18 @@
 import Foundation
 
 struct FetchImagesResponse: Codable {
-    let images: [String]
+    let pictures: [Picture]
+    let page: Int
+    let pageCount: Int
+    let hasMore: Bool
+}
+
+struct Picture: Codable {
+    let id: String
+    let croppedPicture: String
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case croppedPicture = "cropped_picture"
+    }
 }

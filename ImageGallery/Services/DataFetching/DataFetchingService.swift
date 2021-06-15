@@ -12,7 +12,7 @@ final class DataFetchingService {
         self.networkService = networkService
     }
     
-    func fetchImages(page: Int = 0, completion: @escaping(Result<FetchImagesResponse, Error>) -> Void) {
+    func fetchImages(page: Int = 0, completion: @escaping(Result<FetchImagesResponse, NetworkingError>) -> Void) {
         networkService.performRequest(
             request: DataFetchingRouter.images(page),
             completionHandler: { (result: Result<FetchImagesResponse, NetworkingError>) in
@@ -26,7 +26,7 @@ final class DataFetchingService {
         )
     }
     
-    func fetchImageDetails(id: String, completion: @escaping(Result<FetchImagesResponse, Error>) -> Void) {
+    func fetchImageDetails(id: String, completion: @escaping(Result<FetchImagesResponse, NetworkingError>) -> Void) {
         networkService.performRequest(
             request: DataFetchingRouter.imageDetails(id),
             completionHandler: { (result: Result<FetchImagesResponse, NetworkingError>) in
