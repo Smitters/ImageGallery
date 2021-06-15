@@ -17,6 +17,7 @@ class ImageGridViewInteractor {
     var currentPage = 0
     var totalPages = 0
     var hasMore = true
+    var loadingInProgress = false
     var pictures: [Picture] = []
     
     init(dataFetchingService: DataFetchingService = Dependencies.current.services.dataFetchingService,
@@ -42,7 +43,8 @@ class ImageGridViewInteractor {
     }
     
     func fetchMoreImages() {
-        guard hasMore else { return }
+        guard hasMore, !loadingInProgress else { return }
+        loadingInProgress = true
         
         dataFetchingService.fetchImages(page: currentPage) { [weak self] result in
             guard let self = self else { return }
@@ -60,6 +62,7 @@ class ImageGridViewInteractor {
     }
     
     private func handlePictureResponse(_ response: FetchImagesResponse) {
+        loadingInProgress = false
         currentPage = response.page + 1
         totalPages = response.pageCount
         hasMore = response.hasMore

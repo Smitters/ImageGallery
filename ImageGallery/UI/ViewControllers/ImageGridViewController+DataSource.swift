@@ -46,11 +46,19 @@ extension ImageGridViewController: UICollectionViewDataSource, UICollectionViewD
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return Constants.interItemSpacing
     }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        willDisplay cell: UICollectionViewCell,
+                        forItemAt indexPath: IndexPath) {
+        guard indexPath.item >= images.count - Constants.loadMoreItemsOffset else { return }
+        imageGridViewPresenter.handleLatestCellsDisplaying()
+    }
 }
 
 extension ImageGridViewController {
     enum Constants {
         static let interItemSpacing: CGFloat = 8
         static let rowsCount: CGFloat = 2
+        static let loadMoreItemsOffset: Int = 4
     }
 }

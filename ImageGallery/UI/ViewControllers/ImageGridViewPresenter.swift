@@ -24,6 +24,10 @@ extension ImageGridViewPresenter {
     func handleScreenLoading() {
         interactor.authorizeAndFetchInitialData()
     }
+    
+    func handleLatestCellsDisplaying() {
+        interactor.fetchMoreImages()
+    }
 }
 
 // MARK: Interactor Event Handlers
